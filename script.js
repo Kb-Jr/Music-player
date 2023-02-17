@@ -13,6 +13,13 @@ const nextBtn = document.getElementById('next');
 
 // Music object
  const songs = [
+    
+    {
+        name:'Bad Influence',
+        displayName: 'Bad Influence',
+        artist:'Omah Lay',
+    },
+
     {
         name:'No Role Modelz',
         displayName: 'No role modelz',
@@ -28,6 +35,23 @@ const nextBtn = document.getElementById('next');
         displayName: 'Malibu',
         artist:'Miley Cyrus',
     },
+    {
+        name:'Grand Piano',
+        displayName: 'Grand Piano',
+        artist:'Nicki Minaj',
+    },
+
+    {
+        name:'Contour',
+        displayName: 'Contour',
+        artist:'Joeboy',
+    },
+    {
+        name:'Higher',
+        displayName: 'Higher',
+        artist:'Rihanna',
+    },
+    
 
  ]
 
@@ -57,7 +81,6 @@ function loadSong(song){
     music.src = `music/${song.name}.mp3`;
     image.src = `img/${song.name}.jpg`;
     
-
 };
 
 let songIndex = 0;
@@ -122,7 +145,7 @@ function setProgress(e){
     const clickX = e.offsetX;
     const { duration } = music;
     music.currentTime = (clickX/width) * duration;
-    
+
 }
 
 

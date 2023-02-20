@@ -174,8 +174,8 @@ function unShuffleSongs(){
 
 
 
-    nextBtn.addEventListener('click', nextSong);
-    prevBtn.addEventListener('click', prevSong);
+    // nextBtn.addEventListener('click', nextSong);
+    // prevBtn.addEventListener('click', prevSong);
    
 }
 

@@ -85,8 +85,43 @@ h3 {
 .player-controls {
   position: relative;
   top: -15px;
-  left: 120px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  /* left: 100px;
   width: 200px;
+  border: 1px solid red; */
+}
+
+.play{
+  /* border: 1px solid red; */
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+
+.shuffle{
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  /* border: 1px solid red; */
+
+}
+
+.volume-controls{
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ 
 }
 
 .fas {
@@ -104,8 +139,29 @@ h3 {
 .main-button {
   font-size: 40px;
   position: relative;
-  top: 3px;
+  left:13px
+  /* top: 3px; */
 }
+
+.volume-plus, .volume-minus, .shuffle-icon {
+  font-size: 14px;
+}
+
+/* .play-button, .next-button, .prev-button{
+  border: 1px solid red;
+} */
+
+.play-button{
+  width: 25%;
+ 
+}
+
+.prev-button, .next-button{
+  width: 12.5%;
+}
+
+
+
 
 /* Media Query: iPhone (Vertical) */
 @media screen and (max-width: 376px) {

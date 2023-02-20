@@ -6,13 +6,17 @@ const progressContainer = document.getElementById('progress-container');
 const progress = document.getElementById('progress');
 const currentTimeEl = document.getElementById('current-time');
 const durationEl = document.getElementById('duration');
+const shuffleBtn = document.getElementById('shuffle-icon');
+// const unShuffleBtn = document.getElementById('unshuffle-icon');
+const volumeUp = document.getElementById('increase');
+const volumedown = document.getElementById('decrease');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 
 
 // Music object
- const songs = [
+ let songs = [
     
     {
         name:'Bad Influence',
@@ -76,12 +80,110 @@ playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
 
 function loadSong(song){
+
     title.textContent = song.displayName;
     artist.textContent = song.artist;
     music.src = `music/${song.name}.mp3`;
     image.src = `img/${song.name}.jpg`;
     
 };
+
+
+let isShuffled = false;
+
+
+function shuffleSongs(){
+    isShuffled = true;
+   
+    shuffleBtn.classList.replace('fa-shuffle', 'fa-grip-lines');
+    const shuffled = songs.sort(() => 0.5 - Math.random());
+    let newList = shuffled.slice(0,songs.length);
+    let nowsong = newList[0];
+    console.log(nowsong);
+
+    function loadShuffled(){
+        title.textContent = nowsong.displayName;
+        artist.textContent = nowsong.artist;
+        music.src = `music/${nowsong.name}.mp3`;
+        image.src = `img/${nowsong.name}.jpg`;
+    }
+
+    loadShuffled();
+
+    playSong();
+      
+}
+
+function unShuffleSongs(){
+    isShuffled = false;
+    shuffleBtn.classList.replace('fa-grip-lines', 'fa-shuffle');
+    const arrangedList = [
+    
+        {
+            name:'Bad Influence',
+            displayName: 'Bad Influence',
+            artist:'Omah Lay',
+        },
+    
+        {
+            name:'No Role Modelz',
+            displayName: 'No role modelz',
+            artist:'J Cole',
+        },
+        {
+            name:'Back to sleep',
+            displayName: 'Back to sleep',
+            artist:'Chris Brown',
+        },
+        {
+            name:'Malibu',
+            displayName: 'Malibu',
+            artist:'Miley Cyrus',
+        },
+        {
+            name:'Grand Piano',
+            displayName: 'Grand Piano',
+            artist:'Nicki Minaj',
+        },
+    
+        {
+            name:'Contour',
+            displayName: 'Contour',
+            artist:'Joeboy',
+        },
+        {
+            name:'Higher',
+            displayName: 'Higher',
+            artist:'Rihanna',
+        },
+        
+    
+     ];
+
+     let toPlay = arrangedList[0];
+
+     function loadUnShuffled(){
+        title.textContent = toPlay.displayName;
+        artist.textContent = toPlay.artist;
+        music.src = `music/${toPlay.name}.mp3`;
+        image.src = `img/${toPlay.name}.jpg`;
+    }
+
+    loadUnShuffled();
+    playSong();
+
+
+
+    nextBtn.addEventListener('click', nextSong);
+    prevBtn.addEventListener('click', prevSong);
+   
+}
+
+
+shuffleBtn.addEventListener('click', () => (isShuffled ? unShuffleSongs() : shuffleSongs()));
+
+
+
 
 let songIndex = 0;
 
@@ -104,6 +206,8 @@ function prevSong(){
     loadSong(songs[songIndex]);
     playSong();
 }
+
+
 
 
 loadSong(songs[songIndex]);
@@ -149,6 +253,37 @@ function setProgress(e){
 }
 
 
+function setVolume(){
+    music.volume = 0.4;
+};
+
+
+function increase(){
+    if (music.volume < 1){
+        music.volume+=0.1;
+    }
+
+    else if (music.volume = 1){
+        music.volume +=0;
+    }
+
+};
+
+function decrease(){
+    music.volume-=0.1;
+    
+}
+
+
+setVolume();
+
+
+// shuffleBtn.addEventListener('click', shuffleSongs);
+// unshuffleBtn.addEventListener('click', );
+// shuffleBtn.addEventListener('click', shuffleSongs);
+// unShuffleBtn.addEventListener('click', unShuffleSongs);
+volumeUp.addEventListener('click', increase);
+volumedown.addEventListener('click', decrease);
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 music.addEventListener('ended', nextSong);

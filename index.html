@@ -6,6 +6,8 @@
     <title>Music Player</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,9 +30,29 @@
         </div>
 
         <div class="player-controls">
-            <i class="fas fa-backward" id="prev" title="Previous"></i>
-            <i class="fas fa-play main-button" id="play" title="Play"></i>
-            <i class="fas fa-forward" id="next" title="Next"></i>
+            <div class="shuffle" id="shuffle">
+                <!-- <i class="fa-solid fa-shuffle"></i> -->
+                <i class="fas fa-shuffle shuffle-icon" id="shuffle-icon"></i>
+                <!-- <i class="fas fa-grip-lines unshuffle-icon" id="unshuffle-icon"></i> -->
+            </div>
+            <div class="play">
+                <div class="prev-button">
+                    <i class="fas fa-backward" id="prev" title="Previous"></i>
+                </div>             
+                <div class="play-button">
+                    <i class="fas fa-play main-button" id="play" title="Play"></i>
+                </div>
+                <div class="next-button">
+                    <i class="fas fa-forward" id="next" title="Next"></i>
+                </div>
+                
+            </div>
+            
+            <div class="volume-controls">
+                <i class="fas fa-plus volume-plus" id="increase"></i>
+                <i class="fas fa-minus volume-minus" id="decrease"></i>
+            </div>
+            
         </div>
     </div>
     <!-- Script -->

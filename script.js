@@ -7,7 +7,6 @@ const progress = document.getElementById('progress');
 const currentTimeEl = document.getElementById('current-time');
 const durationEl = document.getElementById('duration');
 const shuffleBtn = document.getElementById('shuffle-icon');
-// const unShuffleBtn = document.getElementById('unshuffle-icon');
 const volumeUp = document.getElementById('increase');
 const volumedown = document.getElementById('decrease');
 const prevBtn = document.getElementById('prev');
@@ -59,6 +58,8 @@ const nextBtn = document.getElementById('next');
 
  ]
 
+
+
 let isPlaying = false;
 
 
@@ -92,91 +93,71 @@ function loadSong(song){
 let isShuffled = false;
 
 
+
 function shuffleSongs(){
     isShuffled = true;
    
     shuffleBtn.classList.replace('fa-shuffle', 'fa-grip-lines');
-    const shuffled = songs.sort(() => 0.5 - Math.random());
-    let newList = shuffled.slice(0,songs.length);
-    let nowsong = newList[0];
-    console.log(nowsong);
+    let randomSong = songs[Math.floor(Math.random() * songs.length)];
 
     function loadShuffled(){
-        title.textContent = nowsong.displayName;
-        artist.textContent = nowsong.artist;
-        music.src = `music/${nowsong.name}.mp3`;
-        image.src = `img/${nowsong.name}.jpg`;
+        title.textContent = randomSong.displayName;
+        artist.textContent = randomSong.artist;
+        music.src = `music/${randomSong.name}.mp3`;
+        image.src = `img/${randomSong.name}.jpg`;
     }
 
     loadShuffled();
-
     playSong();
       
 }
 
+
 function unShuffleSongs(){
     isShuffled = false;
     shuffleBtn.classList.replace('fa-grip-lines', 'fa-shuffle');
-    const arrangedList = [
     
-        {
-            name:'Bad Influence',
-            displayName: 'Bad Influence',
-            artist:'Omah Lay',
-        },
-    
-        {
-            name:'No Role Modelz',
-            displayName: 'No role modelz',
-            artist:'J Cole',
-        },
-        {
-            name:'Back to sleep',
-            displayName: 'Back to sleep',
-            artist:'Chris Brown',
-        },
-        {
-            name:'Malibu',
-            displayName: 'Malibu',
-            artist:'Miley Cyrus',
-        },
-        {
-            name:'Grand Piano',
-            displayName: 'Grand Piano',
-            artist:'Nicki Minaj',
-        },
-    
-        {
-            name:'Contour',
-            displayName: 'Contour',
-            artist:'Joeboy',
-        },
-        {
-            name:'Higher',
-            displayName: 'Higher',
-            artist:'Rihanna',
-        },
-        
-    
-     ];
+    let toPlay = songs[0];
 
-     let toPlay = arrangedList[0];
-
-     function loadUnShuffled(){
+    function loadUnShuffled(){
+   
         title.textContent = toPlay.displayName;
         artist.textContent = toPlay.artist;
         music.src = `music/${toPlay.name}.mp3`;
-        image.src = `img/${toPlay.name}.jpg`;
+        image.src = `img/${toPlay.name}.jpg`;       
+        
     }
 
     loadUnShuffled();
     playSong();
-
-
-
-    // nextBtn.addEventListener('click', nextSong);
-    // prevBtn.addEventListener('click', prevSong);
    
+}
+
+
+var firstSong = songs.indexOf(songs[0]);
+var randomss = Math.floor(Math.random() * songs.length);
+
+
+function nextSongs(){
+    isShuffled = false;
+    firstSong++;
+    if (firstSong > songs.length - 1) {
+        firstSong = 0;
+    };
+    
+    loadSong(songs[firstSong]);
+    playSong();
+}
+
+
+function prevSongs(){
+    isShuffled = false;
+    firstSong--;
+    if (firstSong < 0) {
+        firstSong = songs.length - 1;
+    };
+    loadSong(songs[firstSong]);
+    playSong();
 }
 
 
@@ -184,11 +165,10 @@ shuffleBtn.addEventListener('click', () => (isShuffled ? unShuffleSongs() : shuf
 
 
 
-
 let songIndex = 0;
 
-
 function nextSong(){
+    isShuffled = true;
     songIndex++;
     if (songIndex > songs.length - 1) {
         songIndex = 0;
@@ -199,6 +179,7 @@ function nextSong(){
 
 
 function prevSong(){
+    isShuffled = true;
     songIndex--;
     if (songIndex < 0) {
         songIndex = songs.length - 1;
@@ -209,8 +190,8 @@ function prevSong(){
 
 
 
-
 loadSong(songs[songIndex]);
+
 
 
 function updateProgress(e){
@@ -274,18 +255,13 @@ function decrease(){
     
 }
 
-
 setVolume();
 
 
-// shuffleBtn.addEventListener('click', shuffleSongs);
-// unshuffleBtn.addEventListener('click', );
-// shuffleBtn.addEventListener('click', shuffleSongs);
-// unShuffleBtn.addEventListener('click', unShuffleSongs);
+prevBtn.addEventListener('click', () => isShuffled ? prevSong() : prevSongs());
+nextBtn.addEventListener('click', () => isShuffled ? nextSong() : nextSongs());
 volumeUp.addEventListener('click', increase);
 volumedown.addEventListener('click', decrease);
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
 music.addEventListener('ended', nextSong);
 music.addEventListener('timeupdate', updateProgress);
 progressContainer.addEventListener('click', setProgress);

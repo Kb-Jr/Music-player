@@ -1,16 +1,10 @@
 # Music player
- 
-# About
-
-
-# Infinity quotes
- Populate infinite-ish random quotes in a single page
-
+A single page web music player
 
 # About
-A single web page to generate and display a Random quotes fetched from a quotes API. Individual quotes can be seen by scrolling on a device. Before scrolling to the end of the window, a new batch of 10 random quotes are added so the user can keep scrolling on the same page to access more quotes. Each individual quote has two buttons, Twitter and Whatsapp which can be used to share the quotes to either twitter or Whatsapp.
+A single page music player built using HTML CSS and Javascript. Features include Play, pause, next, previous, shuffle, un-shuffle, Volume up, volume down, Progress bar and progress bar seeking.
 
-## Table of contents
+<!-- ## Table of contents
 
   - [Screenshot](#screenshot)
   - [Links](#links)
@@ -91,4 +85,4 @@ A single web page to generate and display a Random quotes fetched from a quotes 
 ## Author
 
 - Github - [@Kb-Jr](https://github.com/Kb-Jr)
-- Twitter - [@Joker__XL](https://www.twitter.com/Joker__XL)
+- Twitter - [@Joker__XL](https://www.twitter.com/Joker__XL) -->

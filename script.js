@@ -61,7 +61,23 @@ const nextBtn = document.getElementById('next');
         artist:'Lil Baby ft Fridayy',
     },
     
+    {
+        name:'Soweto',
+        displayName: 'Soweto',
+        artist:'Victony',
+    },
 
+    {
+        name:'Wicked Games',
+        displayName: 'Wicked Games',
+        artist:'The Weekend',
+    },
+
+    {
+        name:'Telephone',
+        displayName: 'Telephone',
+        artist:'Lady Gaga ft Beyonce',
+    },
  ]
 
 

@@ -17,174 +17,249 @@ body {
 }
 
 .player-container {
-  height: 500px;
-  width: 400px;
-  background: #e7e7e7;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+    height: 75vh;
+    width: 30vw;
+    background: #e7e7e7;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid red;
 }
 
 .img-container {
 
-  width: 300px;
-  height: 300px;
-  position: relative;
-  top: -50px;
-  left: 50px;
-}
+    width: 70%;
+    height: 300px;
+    position: relative;
+    top: -50px;
+    margin: auto;
+    border: 1px solid red;
 
+  }
+  
 .img-container img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
-}
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+  }
 
 h2 {
-  font-size: 25px;
-  text-align: center;
-  margin: 0;
-}
-
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+  }
+  
 h3 {
-  font-size: 20px;
-  text-align: center;
-  font-weight: 400;
-  margin: 5px 0 0;
-}
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    margin: 5px 0 0;
+  }
 
 /* Progress */
 .progress-container {
-  background: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 40px 20px;
-  height: 4px;
-  width: 90%;
+background: #fff;
+border-radius: 5px;
+cursor: pointer;
+margin: 30px 20px;
+height: 4px;
+width: 90%;
+border: 1px solid #040511;
 }
 
 .progress {
-  background: #242323;
-  border-radius: 5px;
-  height: 100%;
-  width: 0%;
-  transition: width 0.1s linear;
-  
+background: #0c0e22;
+border-radius: 5px;
+height: 100%;
+width: 0%;
+transition: width 0.1s linear;
+
 }
 
 .duration-wrapper {
-  position: relative;
-  top: -25px;
-  display: flex;
-  justify-content: space-between;
+position: relative;
+top: -25px;
+display: flex;
+justify-content: space-between;
 
 }
+  
 
-/* Controls */
 .player-controls {
-  position: relative;
-  top: -15px;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  /* left: 100px;
-  width: 200px;
-  border: 1px solid red; */
+position: relative;
+top: -15px;
+width: 100%;
+margin: auto;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+/* left: 100px;
+width: 200px;
+border: 1px solid red; */
+border: 1px solid red;
+
 }
 
 .play{
-  /* border: 1px solid red; */
-  width: 50%;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  /* border: 1px solid blue; */
+/* border: 1px solid red; */
+width: 60%;
+height: 100%;
+margin: auto;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+/* border: 1px solid blue; */
+border: 1px solid red;
 }
 
 .shuffle{
-  width: 25%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  /* border: 1px solid red; */
+width: 20%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+/* border: 1px solid red; */
+
 
 }
 
 .volume-controls{
-  width: 25%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
- 
+width: 20%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+/* border: 1px solid red; */
 }
 
 .fas {
-  font-size: 30px;
-  color: rgb(129, 129, 129);
-  margin-right: 30px;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.5s ease;
+font-size: 30px;
+color: #0c0e22;
+/* margin-right: 30px; */
+cursor: pointer;
+user-select: none;
+
+/* border: 1px solid red; */
 }
 
 .fas:hover {
-  filter: brightness(80%);
-  transform: scale(110%);
+filter: brightness(150%);
+/* transform: scale(105%); */
 }
 
+.prev-button{
+/* border: 1px solid blue; */
+width: 20%;
+}
+.play-button{
+    /* border: 1px solid blue; */
+    width: 20%;
+}
+.next-button{
+    /* border: 1px solid blue;  */
+    width: 20%;
+}
 .main-button {
-  font-size: 40px;
-  position: relative;
-  left:13px
-  /* top: 3px; */
+font-size: 45px;
+/* position: relative; */
+
+/* border: 1px solid red; */
+/* top: 3px; */
 }
 
 .volume-plus, .volume-minus, .shuffle-icon {
-  font-size: 14px;
+font-size: 16px;
+/* border: 1px solid red; */
 }
 
-/* .play-button, .next-button, .prev-button{
-  border: 1px solid red;
+
+/* .play-button{
+border: 1px solid red;
+width: 25%;
+
 } */
 
-.play-button{
-  width: 25%;
- 
-}
+@media screen and (max-width: 1000px) {
+    .player-container {
+      width: 85vw;
+      
+    }
 
-.prev-button, .next-button{
-  width: 12.5%;
-}
-
-
-
-
-/* Media Query: iPhone (Vertical) */
-@media screen and (max-width: 376px) {
-  .player-container {
-    width: 95vw;
-  }
-
-  .img-container {
-    left: 29px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  h3 {
+    h2 {
+        font-size: 20px;
+      }
+    
+    h3 {
     font-size: 15px;
-  }
+    }
 
-  .player-controls {
+    .progress-container {
+        
+        margin: 30px 15px;
+    }
+
+    .player-controls {
     top: -10px;
-    left: 2px;
-  }
+    /* left: 2px; */
+    }
+
+    .fas {
+    font-size: 25px;
+    color: #0c0e22;
+    /* margin-right: 30px; */
+    cursor: pointer;
+    user-select: none;
+    
+    /* border: 1px solid red; */
+    }
+
+    .main-button {
+        font-size: 35px;
+        /* position: relative; */
+        
+        /* border: 1px solid red; */
+        /* top: 3px; */
+        }
+
+    .volume-plus, .volume-minus, .shuffle-icon {
+        font-size: 10px;
+        /* border: 1px solid red; */
+        }
+                
+}
+
+@media screen and (max-width: 300px){
+    .player-container {
+        width: 90vw;
+        
+      }
+
+      .progress-container {
+        margin: 30px 13px;
+    }
+    .fas {
+        font-size: 20px;
+        color: #0c0e22;
+        /* margin-right: 30px; */
+        cursor: pointer;
+        user-select: none;
+        
+        /* border: 1px solid red; */
+        }
+
+        .main-button {
+            font-size: 25px;
+            /* position: relative; */
+            
+            /* border: 1px solid red; */
+            /* top: 3px; */
+            }
+
+        .volume-plus, .volume-minus, .shuffle-icon {
+            font-size: 10px;
+            /* border: 1px solid red; */
+            }
 }

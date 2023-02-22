@@ -54,6 +54,12 @@ const nextBtn = document.getElementById('next');
         displayName: 'Higher',
         artist:'Rihanna',
     },
+
+    {
+        name:'Forever',
+        displayName: 'Forever',
+        artist:'Lil Baby ft Fridayy',
+    },
     
 
  ]
@@ -143,33 +149,53 @@ var randomss = Math.floor(Math.random() * songs.length);
 
 // function to set the next song to be played when shuffled
 function nextSongs(){
-    isShuffled = false;
-    firstSong++;
-    if (firstSong > songs.length - 1) {
-        firstSong = 0;
-    };
+    isShuffled = true;
+
+    // generate random number
+    function randomnumber(){
+        let randomn = Math.floor(Math.random() * songs.length);
+
+        firstSong = randomn;
+
+        if (firstSong > songs.length - 1) {
+            firstSong = 0;
+        };
+
+    }
     
+    randomnumber();
     loadSong(songs[firstSong]);
     playSong();
 }
 
+
 // function to set the previous song to be played when shuffled
 function prevSongs(){
-    isShuffled = false;
-    firstSong--;
-    if (firstSong < 0) {
-        firstSong = songs.length - 1;
-    };
+    isShuffled = true;
+
+    // generate random number
+    function randomnumber(){
+        let randomn = Math.floor(Math.random() * songs.length);
+
+        firstSong = randomn;
+        if (firstSong > songs.length - 1) {
+            firstSong = 0;
+        };
+       
+    }
+    
+    randomnumber();
     loadSong(songs[firstSong]);
     playSong();
 }
+
 
 
 let songIndex = 0;
 
 // function to set the next song to be played when not shuffled
 function nextSong(){
-    isShuffled = true;
+    isShuffled = false;
     songIndex++;
     if (songIndex > songs.length - 1) {
         songIndex = 0;
@@ -181,7 +207,7 @@ function nextSong(){
 
 // function to set the previous song to be played when not shuffled
 function prevSong(){
-    isShuffled = true;
+    isShuffled = false;
     songIndex--;
     if (songIndex < 0) {
         songIndex = songs.length - 1;
@@ -265,8 +291,8 @@ setVolume();
 
 // event listeners on buttons to execute or toggle between functions
 shuffleBtn.addEventListener('click', () => (isShuffled ? unShuffleSongs() : shuffleSongs()));
-prevBtn.addEventListener('click', () => isShuffled ? prevSong() : prevSongs());
-nextBtn.addEventListener('click', () => isShuffled ? nextSong() : nextSongs());
+prevBtn.addEventListener('click', () => (isShuffled ? prevSongs() : prevSong()));
+nextBtn.addEventListener('click', () => (isShuffled ? nextSongs() : nextSong()));
 volumeUp.addEventListener('click', increase);
 volumedown.addEventListener('click', decrease);
 music.addEventListener('ended', nextSong);

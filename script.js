@@ -123,6 +123,7 @@ function shuffleSongs(){
     isShuffled = true;
    
     shuffleBtn.classList.replace('fa-shuffle', 'fa-grip-lines');
+    shuffleBtn.setAttribute('title', 'Shuffle');
     let randomSong = songs[Math.floor(Math.random() * songs.length)];
 
     function loadShuffled(){
@@ -135,13 +136,14 @@ function shuffleSongs(){
     loadShuffled();
     playSong();
       
-}
+};
 
 
 // function to unshuffle songs
 function unShuffleSongs(){
     isShuffled = false;
     shuffleBtn.classList.replace('fa-grip-lines', 'fa-shuffle');
+    shuffleBtn.setAttribute('title', 'Un-Shuffle');
     
     let toPlay = songs[0];
 
@@ -157,11 +159,9 @@ function unShuffleSongs(){
     loadUnShuffled();
     playSong();
    
-}
-
+};
 
 var firstSong = songs.indexOf(songs[0]);
-var randomss = Math.floor(Math.random() * songs.length);
 
 // function to set the next song to be played when shuffled
 function nextSongs(){
@@ -172,17 +172,12 @@ function nextSongs(){
         let randomn = Math.floor(Math.random() * songs.length);
 
         firstSong = randomn;
-
-        if (firstSong > songs.length - 1) {
-            firstSong = 0;
-        };
-
     }
     
     randomnumber();
     loadSong(songs[firstSong]);
     playSong();
-}
+};
 
 
 // function to set the previous song to be played when shuffled
@@ -193,17 +188,13 @@ function prevSongs(){
     function randomnumber(){
         let randomn = Math.floor(Math.random() * songs.length);
 
-        firstSong = randomn;
-        if (firstSong > songs.length - 1) {
-            firstSong = 0;
-        };
-       
+        firstSong = randomn;       
     }
     
     randomnumber();
     loadSong(songs[firstSong]);
     playSong();
-}
+};
 
 
 
@@ -218,7 +209,7 @@ function nextSong(){
     };
     loadSong(songs[songIndex]);
     playSong();
-}
+};
 
 
 // function to set the previous song to be played when not shuffled
@@ -230,7 +221,7 @@ function prevSong(){
     };
     loadSong(songs[songIndex]);
     playSong();
-}
+};
 
 
 // execute loadSong function
@@ -276,7 +267,7 @@ function setProgress(e){
     const { duration } = music;
     music.currentTime = (clickX/width) * duration;
 
-}
+};
 
 // function to set default volume
 function setVolume(){
@@ -285,24 +276,17 @@ function setVolume(){
 
 // function to increase volume
 function increase(){
-    if (music.volume < 1){
-        music.volume+=0.1;
-    }
-
-    else if (music.volume = 1){
-        music.volume +=0;
-    }
-
+    music.volume+=0.1; 
 };
 
 // function to decrease volume
 function decrease(){
     music.volume-=0.1;
-    
-}
+};
 
 // execute default volume on load
 setVolume();
+
 
 
 // event listeners on buttons to execute or toggle between functions
@@ -311,6 +295,6 @@ prevBtn.addEventListener('click', () => (isShuffled ? prevSongs() : prevSong()))
 nextBtn.addEventListener('click', () => (isShuffled ? nextSongs() : nextSong()));
 volumeUp.addEventListener('click', increase);
 volumedown.addEventListener('click', decrease);
-music.addEventListener('ended', nextSong);
+music.addEventListener('ended', () => (isShuffled ? nextSongs() : nextSong()));
 music.addEventListener('timeupdate', updateProgress);
 progressContainer.addEventListener('click', setProgress);

@@ -91,8 +91,9 @@ Default Volume: Create a function to set the music volume using the volume prope
 
 - Update the text content of the duration element in minutes and seconds. Derive the minutes by dividing the duration by 60 and derive the value for seconds by getting the remainder when the duration is divided by 60. Update the text content of the duration element by passing in the derived values as string literals. Repeat same steps to update the current time, but instead of using the duration variable, use the current time variable. 
 
+
 ##### Set Progress
-Create a function to set how much of the song has been played. Get the width of the progress bar element by using the clientWidth Property of the Progress Bar. The progress bar is referred to by using the "This" Keyword. Get the point that was clicked from the "offsetX" property of the "click" event. The current progress is gotten by value of the position clicked by the value of the width of the progress bar then multiplying it by the duration of the song. This function is called when the "click" event fires on the progress bar and it takes the "click" event as input.
+Create a function to set how much of the song has been played. Get the width of the progress bar element by using the clientWidth Property of the Progress Bar. The progress bar is referred to by using the "This" Keyword. Get the point that was clicked from the "offsetX" property of the "click" event. Store the duration of the song in a variable using a destructuring assignment, this acesses the Duration property in the audio file and automatically stores it as a variable with the same name (duration). The current progress is gotten by value of the position clicked by the value of the width of the progress bar then multiplying it by the duration of the song. This function is called when the "click" event fires on the progress bar and it takes the "click" event as input.
 
 
 
